@@ -1,0 +1,15 @@
+{
+  "source": {
+    "include": ["src"],
+    "includePattern": ".js$"
+  },
+  "plugins": [],
+  "templates": {
+    "default": "path/to/default/template"
+  },
+  "opts": {
+    "destination": "./docs/jsdocs",
+    "recurse": true,
+    "readme": "./README.md"
+  }
+}

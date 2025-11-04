@@ -19,3 +19,26 @@ Accepted
 
 ## Date
 2025-11-03
+
+# ADR 002: Implement JSDoc with Automated Documentation Generation
+
+## Context
+The lab requires "JSDocs with doc generation" to enhance code documentation and demonstrate professional habits. The brownfield code lacks inline docs, making it harder to understand methods/classes (e.g., TodoModel's addTodo). Adding JSDoc enables type hints and readable comments, while generation turns them into a browsable HTML site for sharing (e.g., via README link).
+
+## Decision
+Implement JSDoc comments on key exports (e.g., classes, methods with @param/@returns) across src/ files. Add jsdoc CLI as devDep, configure via jsdoc.conf.json (scanning src/, outputting to docs/jsdocs/), and expose via npm script "docs". Retain existing refactors (e.g., JSDoc already added to TodoModel constructor/methods).
+
+Alternatives considered:
+- Manual Markdown docs: Easier but less integrated (no auto-gen from code).
+- TypeScript: Overkill for JS-only project (adds conversion overhead).
+
+## Status
+Accepted
+
+## Consequences
+- **Positive**: Generates shareable HTML docs (e.g., index.html with class overviews); improves IDE hints; rubric credit for "docs".
+- **Negative**: Adds ~5min setup; requires comment maintenance.
+- **Neutral**: No runtime impact; runs on-demand via npm run docs.
+
+## Date
+2025-11-03
