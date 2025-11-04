@@ -42,3 +42,26 @@ Accepted
 
 ## Date
 2025-11-03
+
+# ADR 003: Retain Lit for Web Components in This Lab
+
+## Context
+The project uses Lit (^3.1.0) for reactive web components in the UI layer (e.g., TodoApp, TodoItem). As a brownfield addition, Lit provides declarative templates and auto-updates, but the app is a basic Todo/note manager with CRUD operations and localStorage persistence. Prior labs used vanilla JS/custom elements without deps. Given the lab's emphasis on simplicity, ownership, and handling "new tech thrown at you," assess if Lit aligns with experimenting in a new context without overcomplicating.
+
+## Decision
+Retain Lit for this lab: Its lightweight reactivity (~5KB) enhances the MVC pattern with minimal overhead, making it suitable for a simple Todo app. No removal or refactor needed—leverage it to practice web standards with efficiency gains over pure vanilla (e.g., auto-re-renders on prop changes). Update: No version bump; ^3.1.0 is current stable.
+
+Alternatives considered:
+- Strip to vanilla: Viable for basics but adds manual DOM boilerplate, missing the lab's "contend with dependencies" goal.
+- Switch to full framework (e.g., React): Overkill—Lit is the "easier" dep as instructed.
+
+## Status
+Accepted
+
+## Consequences
+- **Positive**: Reduces code verbosity (e.g., properties for state vs. manual listeners); aligns with lab's new tech practice; easy to extend for personal touches like priorities.
+- **Negative**: Introduces a dep (but tiny); slight learning curve, mitigated by lit.dev docs.
+- **Neutral**: Core model/service unchanged; Vite handles bundling seamlessly. Full removal could be future ADR if scaling down.
+
+## Date
+2025-11-04
